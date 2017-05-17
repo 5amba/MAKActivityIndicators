@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Martin Kloepfel. All rights reserved.
 //
 
-#import "MAKLoadingIndicatorBar.h"
+#import "MAKActivityIndicatorBar.h"
 
 #import <FrameAccessor/FrameAccessor.h>
 
