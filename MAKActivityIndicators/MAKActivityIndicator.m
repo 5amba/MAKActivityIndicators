@@ -36,8 +36,8 @@
         self.angleGradientLayer = [AngleGradientLayer new];
         self.angleGradientLayer.backgroundColor = [UIColor clearColor].CGColor;
         self.angleGradientLayer.frame = self.contentLayer.bounds;
-//        self.angleGradientLayer.transform = CATransform3DMakeRotation(-M_PI_2, 0.0, 0.0, 1.0);
         self.angleGradientLayer.colors = @[(id)self.tintColor.CGColor, (id)[UIColor colorWithWhite:1.0 alpha:0.0].CGColor];
+        self.angleGradientLayer.transform = CATransform3DMakeRotation(-M_PI_2, 0.0, 0.0, 1.0);
         self.angleGradientLayer.masksToBounds = YES;
         [self.contentLayer addSublayer:self.angleGradientLayer];
         
@@ -69,19 +69,17 @@
     if (![tintColor isKindOfClass:[UIColor class]])
         return; //TODO: exeption!
     
-    [super setTintColor:tintColor];
-    
     self.angleGradientLayer.colors = @[(id)tintColor.CGColor, (id)[UIColor colorWithWhite:1.0 alpha:0.0].CGColor];
 }
 
-//- (UIColor *)tintColor
-//{
-//    CGColorRef colorRef = (__bridge CGColorRef)((id)((AngleGradientLayer *)self.angleGradientLayer).colors.firstObject);
-//    
-//    if (colorRef)
-//        return [UIColor colorWithCGColor:colorRef];
-//    return nil;
-//}
+- (UIColor *)tintColor
+{
+    CGColorRef colorRef = (__bridge CGColorRef)((id)((AngleGradientLayer *)self.angleGradientLayer).colors.firstObject);
+    
+    if (colorRef)
+        return [UIColor colorWithCGColor:colorRef];
+    return nil;
+}
 
 - (void)setTintColors:(NSArray *)tintColors
 {
@@ -128,7 +126,7 @@
     
     self.animating = YES;
     
-    CABasicAnimation* rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     
     
     double temp;

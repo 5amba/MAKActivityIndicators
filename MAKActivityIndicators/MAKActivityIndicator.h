@@ -13,7 +13,7 @@
 
 @property (nonatomic, readonly) BOOL isAnimating;
 
-//@property (nonatomic, strong) UIColor *tintColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *tintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) NSArray *tintColors UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic) BOOL hidesWhenStopped;
